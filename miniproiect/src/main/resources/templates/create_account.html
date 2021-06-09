@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create an account</title>
+    <style>
+    .button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+
+label {
+  display: inline-block;
+  width: 80px;
+  text-align: right;
+}
+
+html {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+</style>
+</head>
+<body style="color:white">
+
+<h1 style="text-align:center; color:white">Create an account</h1>
+<form name="f" th:action="@{/create_account}" th:object="${user}" method="post">
+    <fieldset style="text-align:center">
+        <div th:if="${param.error}" class="alert alert-error">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out.
+        </div>
+        
+        <label th:for="username" style="color:white">Username</label>
+        <input class="form-control" th:field="*{username}"/>
+        <br>
+        <span th:errors="*{username}" class="error">Dimensiunea </span>
+        <br> <br>
+        
+        
+        <label for="firstName" style="color:white">Firstname</label>
+        <input class="form-control" th:field="*{firstName}"/>
+        <br>
+        <span th:errors="*{firstName}" class="error">Dimensiunea </span>
+        <br> <br>
+        
+        <label for="lastName" style="color:white">Lastname</label>
+        <input class="form-control" th:field="*{lastName}"/>
+        <br>
+        <span th:errors="*{lastName}" class="error"> Dimensiunea </span>
+        <br> <br>
+        
+        <label for="password" style="color:white">Password</label>
+        <input type="password" class="form-control" th:field="*{password}"/>
+        <br>
+        <span th:errors="*{password}" class="error"> Dimensiunea </span>
+        <br> <br>
+        
+        <label for="phoneNumber" style="color:white">Phone number</label>
+        <input class="form-control" th:field="*{phoneNumber}"/>
+        <br>
+        <span th:errors="*{phoneNumber}" class="error"> Dimensiunea </span>
+        <br> <br>
+        
+        <label for="email" style="color:white">   Email    </label>
+        <input type="email" id="email" name="email"/>
+        <br> <br>
+        
+        <label for="address" style="color:white">   Address </label>
+        <input class="form-control" th:field="*{address}"/>
+        <br>
+        <span th:errors="*{address}" class="error"> Dimensiunea </span>
+        <br> <br>
+        <form action="/index">
+            <input type="submit" class="button" value="Submit" />
+        </form>
+    </fieldset>
+</form>
+<form action="/home" style="text-align:right">
+    <input type="submit" class="button" value="Back" />
+</form>
+
+<div align="center">
+	<p th:text="${c_error}"></p>
+ </div>
+</body>
+</html>

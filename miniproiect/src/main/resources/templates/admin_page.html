@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table, th, td {
+  border-style: inset;
+  border-color: rgba(0,0,0,0.5);
+}
+
+.button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+  .buttonHolder{ position: relative;
+  padding-right: 10px;
+}
+
+h1 {
+  background-color: rgba(0,0,0,0.5);
+}
+		</style>
+	<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.topnav a {
+  float: right;
+  color: #778899;
+  text-align: center;
+  padding: 7px 10px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #778899;
+  color: LightSlateGray;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav2 a {
+  float: left;
+  color: #778899;
+  text-align: center;
+  padding: 7px 10px;
+  text-decoration: none;
+  font-size: 17px;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.right {
+  height: 600px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+</style>
+</head>
+<body style="background-color:LightSlateGray">
+
+<div class="topnav2">
+<a><form action="/home" class="topnav2">
+    <input type="submit" class="button" value="Home" />
+   </form></a>
+</div>
+
+<div class="topnav">
+  <a><form action="/all_events">
+    <input type="submit" class="button" value="Events" />
+	</form></a>
+  <a><form action="/all_users">
+    <input type="submit" class="button" value="Users" />
+   </form></a>
+   <a><form action="/admin">
+    <input type="submit" class="button" value="Admin" />
+   </form></a>
+</div>
+
+<div2 class="right"><h1 style="color:white; "> Welcome back! Admin page.</h1></div2>
+</body>
+</html>

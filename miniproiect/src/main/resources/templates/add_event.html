@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add event</title>
+    <style>
+    .button {
+  			background-color: rgba(0,0,0,0.5);
+  			border: none;
+  			color: white;
+  			padding: 5px 10px;
+  			text-align: center;
+  			text-decoration: none;
+  			display: inline-block;
+  			font-size: 15px;
+  			margin: 2px 1px;
+  			cursor: pointer;
+  			}
+			.buttonHolder{ position: relative;
+ 					   padding-right: 10px; }
+  </style>
+</head>
+
+<body style="background-color:LightSlateGray; color: white">
+<div align="center">
+  <h3> Add event </h3>
+	<form name="f" th:action="@{/all_events/add_event}" th:object="${addEvent}" method="post">
+    <table>
+    	<tr>
+    	<td> Event ID </td>
+    	<td> <input type="text" name="id"/></td>
+    	<td> Name </td>
+    	<td> <input type="text" name="name"/></td>
+    	<td> Details </td>
+    	<td> <input type="text" name="details"/></td>
+    	</tr>
+    </table>
+    <br>
+    <input type="submit" class="button" value="Add tickets"/>
+</form>
+    <form action="/all_events">
+    <input type="submit" class = "button" value="Back" />
+	</form>
+	
+</div>
+
+<div align="center">
+	<p th:text="${error_edit}"></p>
+  </div>
+ </body>

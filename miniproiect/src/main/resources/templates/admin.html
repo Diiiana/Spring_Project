@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <style>
+    .button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+
+label {
+  display: inline-block;
+  width: 60px;
+  text-align: right;
+}​
+</style>
+</head>
+<body style="background-color:LightSlateGray; color:white">
+
+<h1 style="text-align:center; color:white">Login</h1>
+<form name="f" th:action="@{/admin_page}" th:object="${user}" method="post">
+    <fieldset style="text-align:center">
+        <div th:if="${param.error}" class="alert alert-error">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out.
+        </div>
+        <label for="username" style="color:white">  Name  </label>
+        <input type="username" id="username" name="username" autofocus="autofocus"/>
+        <br> <br>
+        <label for="password" style="color:white">Password</label>
+        <input type="password" id="password" name="password"/>
+        <br> <br>
+        <form action="/admin_page">
+            <input type="submit" class="button" value="Log In" />
+        </form>
+    </fieldset>
+</form>
+<div align="center">
+	<p th:text="${error_admin}"></p>
+  </div>
+</body>
+</html>

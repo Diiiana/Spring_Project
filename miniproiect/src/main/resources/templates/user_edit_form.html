@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit user</title>
+    <style>
+    .button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+  .buttonHolder{ position: relative;
+  padding-right: 10px;
+}
+ 					   
+  </style>
+</head>
+
+<body style="background-color:LightSlateGray; color: white">
+	<div align="center">
+	<h3> Edit user </h3>
+	<br>
+	<form th:action="@{/all_users/edit/{id} (id=*{id})}" th:object="${editUser}" method="POST">
+		<table>
+		<tr>
+			<td> User Id </td>
+			<td><input type="text" disabled="disabled" name="id" th:field="*{id}"/>
+		</tr>
+		<tr>
+			<td> Username </td>
+			<td><input class="form-control" th:field="*{username}"/>
+        	<span th:errors="*{username}" class="error"></span>
+        	</td>
+        	<br> <br>
+		</tr>
+		<tr>
+			<td> First name </td>
+			<td><input class="form-control" th:field="*{firstName}"/>
+        	<br>
+        	<span th:errors="*{firstName}" class="error"></span>
+        	</td>
+        	<br> <br>
+		</tr>
+		<tr>
+			<td> Last Name </td>
+			<td><input type="text" name="Last Name" th:field="*{lastName}"/>
+		</tr>
+		<tr>
+			<td> Password </td>
+			<td><input type="text" name="password" th:field="*{password}"/>
+		</tr>
+		<tr>
+			<td> Phone number </td>
+			<td><input type="text" name="phoneNumber" th:field="*{phoneNumber}"/>
+		</tr>
+		<tr>
+			<td> Email </td>
+			<td><input type="email" name="email" th:field="*{email}"/>
+		</tr>
+		<tr>
+			<td> Address </td>
+			<td><input type="text" name="address" th:field="*{address}"/>
+		</tr>
+	</table>
+	<br>
+	<input type="Submit" value="Save" class="button"/>
+	<form action="/all_users">
+    <input type="submit" class = "button" value="Back" />
+	</form>
+	</form>
+  </div>
+  
+  <div align="center">
+	<p th:text="${error_edit}"></p>
+  </div>
+ </body>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit event</title>
+    <style>
+    .button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+  .buttonHolder{ position: relative;
+  padding-right: 10px;
+}
+  </style>
+</head>
+
+<body style="background-color:LightSlateGray; color: white">
+	<div align="center">
+	<h3> Edit event </h3>
+	<br>
+	<form th:action="@{/all_events/edit/{id} (id=*{id})}" th:object="${editEvent}" method="POST">
+		<table>
+		<tr>
+			<td> Event Id </td>
+			<td><input type="text" disabled="disabled" name="id" th:field="*{id}"/>
+		</tr>
+		<tr>
+			<td> Name </td>
+			<td><input type="text" name="name" th:field="*{name}"/>
+		</tr>
+		<tr>
+			<td> Details </td>
+			<td><input type="text" name="details" th:field="*{details}"/>
+		</tr>
+		<tr>
+			<td> Number of tickets </td>
+			<td><input type="text" name="numberOfTickets" th:field="*{numberOfTickets}"/>
+		</tr>
+	</table>
+	<br>
+	<input type="Submit" value="Save" class="button"/>
+	</form>
+	<form action="/all_events">
+    <input type="submit" class = "button" value="Back" />
+	</form>
+  </div>
+  
+  <div align="center">
+	<p th:text="${error_edit}"></p>
+  </div>
+ </body>

@@ -1,0 +1,274 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Events</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+    
+        table, th, td {
+  border-collapse: separate;
+  border: solid black 1px;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+}
+
+.button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+
+input[type=text] {
+  width: 150px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: rgba(0,0,0,0.5);
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 3px 3px 3px 8px;
+  -webkit-transition: width 0.4s ease-in-out;
+  transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+  width: 100%;
+}
+
+html {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+body{
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+    background: #C04848;
+    background: -webkit-linear-gradient(to right, #480048, #C04848);
+    background: linear-gradient(to right, #480048, #C04848);
+}
+h2{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+}
+
+/* Table Styles */
+
+.table-wrapper{
+    background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 15px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+    background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #ffffff;
+    font-size: 15px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #C04848;
+  	background: -webkit-linear-gradient(to right, #480048, #C04848);
+  	background: linear-gradient(to right, #480048, #C04848);
+}
+
+.fl-table tr:nth-child(even) {
+    background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+
+/* Responsive */
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+        background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+        background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+        background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 15px;
+        text-overflow: ellipsis;
+        background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+        background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+        background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+    }
+    .fl-table tr:nth-child(even) {
+        background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+        background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+    }
+}
+	</style>
+</head>
+
+
+<body style="color:white">
+<div layout:fragment="content" class="container mySpace">
+	<form action="/lfiltered" class="form-inline">
+	 <div class="form-group mb-2">
+	  <input type="text" class="form-control" name="name" placeholder="Search event"/>
+	  <input type="submit" value="Search" class="button"/>
+	
+	 </div>
+	</form>
+
+<div class="table-wrapper">
+    <table class="fl-table">
+<thead>
+ <tr>
+    <th>              Name         </th>
+    <th> Number of available tickets </th>
+    <th> 		    View details     </th>
+    <th> 		    Options    </th>
+    <br>
+ </tr>
+</thead>
+
+<tbody>
+<tr th:if="${events_llist.empty}">
+    <td colspan="2"> No Events Available </td>
+</tr>
+
+<tr th:each="eve : ${events_llist}">
+    <td><span th:text="${eve.name}"> Name </a></span></td>
+    <td><span th:text="${eve.numberOfTickets}"> Number of available tickets </span></td>
+    <td><span th:text="${eve.details}"> Details </span></td>
+    <td>
+    	<a href="#" th:href="@{/lview_event_details/{id}(id=${eve.id})}" class = "button">
+    		View
+    	</a>
+    <br>
+</tr>
+</table>
+</div>
+</div>
+<form action="/lindex">
+    <input type="submit" class = "button" value="Back" />
+</form>
+</body>
+</html>

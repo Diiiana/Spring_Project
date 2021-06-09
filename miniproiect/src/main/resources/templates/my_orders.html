@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My orders</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table, th, td {
+  border-collapse: separate;
+  border: solid black 1px;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+}
+
+.button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+
+html {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+
+hr.solid {
+  border-top: 1px solid #bbb;
+}
+	</style>
+</head>
+
+
+<body style="color:white;">
+<div align="center">
+	<h3 style="align:center"> All orders </h3>
+</div>
+<span th:each="entry, stat : ${orders_list}">
+    <p> Ticket type: <span th:text="${entry.key.typet}"> Type </span> </p>
+    <p> Total: <span th:text="${entry.key.price}"> Total </span></p>
+    <p> For event: <span th:text="${entry.value}"> Event </span></p>
+    <hr class="solid">
+    <br>
+</span>
+<div align="center">
+	<form action="/lindex">
+    	<input type="submit" class = "button" value="Back" />
+	</form>
+</div>
+</body>
+</html>

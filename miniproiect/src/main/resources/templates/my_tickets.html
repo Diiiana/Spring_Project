@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Events</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+    
+        table, th, td {
+  border-collapse: separate;
+  border: solid black 1px;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+}
+
+.button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+
+html {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+	</style>
+</head>
+
+
+<body style="color:white;">
+<span th:each="entry, stat : ${tickets_list}">
+    <p> Ticket type: <span th:text="${entry.key.typet}"> Event </span> </p>
+    <p> Total price: <span th:text="${entry.key.price}"> Event </span></p>
+    <p> For event: <span th:text="${entry.value}"> Ticket </span></p>
+	  <a href="#" th:href="@{/delete_ticket/tick/{tick} (tick = ${entry.value.id})}" method="post" class = "button">
+    		Delete ticket
+    	</a>
+    <br>
+</span>
+
+<div align="center">
+	<p th:text="${noTickets}"></p>
+</div>
+<div align="center">
+    <a href="#" th:href="@{/finish_order}" method="post" class = "button">
+    		Finish order
+    	</a>
+	<form action="/lindex">
+    	<input type="submit" class = "button" value="Back" />
+	</form>
+</div>
+</body>
+</html>

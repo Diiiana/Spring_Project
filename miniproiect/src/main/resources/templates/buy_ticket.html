@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit order</title>
+    <style>
+		.button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+
+.buttonHolder {
+  position: relative;
+  padding-right: 5px;
+}
+
+body {
+  background-image: url('login.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+div2 {
+  height: 600px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  background-color: rgba(0,0,0,0.5);
+}
+
+html {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+
+form2 {
+  vertical-align: top;
+  display: inline-block;
+  max-width: 49%;
+  text-align: left;
+}
+		</style>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgba(0,0,0,0);
+}
+
+.topnav a {
+  float: right;
+  color: #778899;
+  text-align: center;
+  padding: 7px 10px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #778899;
+  color: LightSlateGray;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body style="color:white">
+
+<div class="topnav">
+<a><form action="/log_out">
+    <input type="submit" class="button" value="Log Out" />
+   </form></a>
+ <a><form action="/my_tickets">
+    <input type="submit" class="button" value="My tickets" />
+   </form></a>
+   <a><form action="/my_orders">
+    <input type="submit" class="button" value="My orders" />
+   </form></a>
+  <a><form action="/llist_events">
+    <input type="submit" class="button" value="View all events" />
+   </form></a>
+   <a style="float:left"><form action="/laboutus">
+    <input type="submit" class="button" value="About us" />
+   </form></a>
+</div>
+
+</style>
+
+<div align="center">
+	<h3> Edit order </h3>
+	<br>
+	<span style="float:center;">
+	<form2 th:object="${forEvent}">
+		<table>
+		<tr>
+			<td> Event name </td>
+			<td><input type="text" disabled="disabled" name="name" th:field="*{name}"/>
+		</tr>
+		<tr>
+			<td> Details </td>
+			<td><input type="text" disabled="disabled" name="details" th:field="*{details}"/>
+		</tr>
+		<tr>
+			<td> Total tickets left </td>
+			<td><input type="number" disabled="disabled" name="numberOfTickets" th:field="*{numberOfTickets}"/>
+		</tr>
+	</table>
+	</form2>
+	<form2>
+	<form th:action="@{/lview_event_details/buy/q/{q}/idt/{idt} (q = *{quantity}, idt = *{idt})}" th:object="${buyTicket}" method="POST">
+		<table>
+		<tr>
+			<td> Price </td>
+			<td><input type="number" disabled="disabled" name="name" th:field="*{price}"/>
+		</tr>
+		<tr>
+			<td> Type </td>
+			<td><input type="text" disabled="disabled" name="typet" th:field="*{typet}"/>
+		</tr>
+		<tr>
+			<td> Quantity </td>
+			<td><input type="number" name="quantity" th:field="*{quantity}"/>
+		</tr>
+	</table>
+	<br>
+	<input type="Submit" value="Order" class="button"/>
+	</form>
+	<form action="/llist_events">
+    <input type="submit" class = "button" value="Back" />
+	</form>
+    </form2>
+<div align="center">
+	<p th:text="${error}"></p>
+  </div>
+  </div>
+ </span>
+</body>
+</html>

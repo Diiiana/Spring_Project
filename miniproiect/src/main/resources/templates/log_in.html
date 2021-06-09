@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+    .button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+
+html {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+</style>
+</head>
+<body style="color:white">
+
+<h1 style="text-align:center">Login</h1>
+<form name="f" th:action="@{/log_in}" th:object="${user}" method="post">
+    <fieldset style="text-align:center">
+        <div th:if="${param.error}" class="alert alert-error">
+            Invalid username and password.
+        </div>
+        <div th:if="${param.logout}" class="alert alert-success">
+            You have been logged out.
+        </div>
+        <label for="username" style="color:white">Username</label>
+        <input type="username" id="username" name="username" autofocus="autofocus"/>
+        <br> <br>
+        <label for="password" style="color:white">Password</label>
+        <input type="password" id="password" name="password"/>
+        <br> <br>
+        <form action="/lindex">
+            <input type="submit" class="button" value="Log In" />
+        </form>
+        <br><br>
+        <form action="/create_account">
+            <input type="submit" class="button" value="Create an account" />
+        </form>
+    </fieldset>
+</form>
+<form action="/home" style="text-align:right">
+    <input type="submit" class="button" value="Skip" />
+</form>
+
+<div align="center" style="color:white">
+	<p th:text="${error_login}"></p>
+  </div>
+</body>
+</html>

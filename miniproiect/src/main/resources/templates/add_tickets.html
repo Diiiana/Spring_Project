@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add tickets</title>
+    <style>
+    .button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+  .buttonHolder{ position: relative;
+  padding-right: 10px;
+}
+  </style>
+</head>
+
+<body style="background-color:LightSlateGray; color: white">
+<div align="center">
+  <h3> Add tickets </h3>
+	<form name="f" th:action="@{/all_events/add_tickets}" th:object="${tickets}" method="post">
+    <table>
+    	<tr>
+    	<td> Event ID </td>
+    	<td>
+    	<input class="form-control" th:field="*{id}"/>
+    	<br>
+        <span th:errors="*{id}" class="error">Dimensiunea </span>
+        </td>
+        
+        <br> <br>
+    	<td> Type </td>
+    	<td> 
+		<input class="form-control" th:field="*{typet}"/>
+		<br>
+        <span th:errors="*{typet}" class="error">Dimensiunea </span>
+    	</td>
+    	
+    	<br> <br>
+    	<td> Price </td>
+    	<td> 
+		<input type="number" class="form-control" th:field="*{price}"/>
+		<br>
+        <span th:errors="*{price}" class="error">Dimensiunea </span>
+    	</td>
+    	
+    	<br> <br>
+    	<td> Quantity </td>
+    	<td> 
+		<input type="number" class="form-control" th:field="*{quantity}"/>
+		<br>
+        <span th:errors="*{quantity}" class="error">Dimensiunea </span>
+    	</td>
+    	
+    	<br> <br>
+    </table>
+    <br>
+    <input type="submit" class="button" value="Submit"/>
+</form>
+<div align="center">
+	<p th:text="${error_edit}"></p>
+  </div>
+	<form action="/all_events">
+    <input type="submit" class = "button" value="Finish" />
+	</form>
+  </div>
+</body>

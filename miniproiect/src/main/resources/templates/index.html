@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Event tickets</title>
+    <style>
+		.button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+
+.buttonHolder {
+  position: relative;
+  padding-right: 10px;
+}
+
+body {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}
+
+div2 {
+  height: 600px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+h1 {
+  background-color: rgba(0,0,0,0.5);
+}
+
+html {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.topnav a {
+  float: right;
+  color: #778899;
+  text-align: center;
+  padding: 7px 10px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #778899;
+  color: LightSlateGray;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body style="color:white">
+
+<div class="topnav">
+   <a><form action="/aboutus" style="margin-left: 0px">
+    <input type="submit" class="button" value="About us" />
+	</form></a>
+  <a><form action="/log_in">
+    <input type="submit" class="button" value="Log In" />
+	</form></a>
+  <a><form action="/list_events">
+    <input type="submit" class="button" value="View all events" />
+   </form></a>
+</div>
+
+<div2><h1> Welcome to Eventickets!</h1></div2>
+
+</body>
+</html>

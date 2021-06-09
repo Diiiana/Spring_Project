@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Details</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        table, th, td {
+  border-collapse: separate;
+  border: solid black 1px;
+  border-radius: 6px;
+  -moz-border-radius: 6px;
+}
+
+.button {
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 2px 1px;
+  cursor: pointer;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.blocktext {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+}
+
+html {
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: #C04848;
+  background: -webkit-linear-gradient(to right, #480048, #C04848);
+  background: linear-gradient(to right, #480048, #C04848);
+}
+	</style>
+</head>
+
+<body style="color:white">
+<div>
+<span th:object="${events_list}">
+    <p style="text-align:center"><font size="3" color="#ffffff"> Event name: <span th:text="${events_list.name}">  Name </span> </font></p>
+    <p><font size="3" color="#ffffff"> Tickets left: <span th:text="${events_list.numberOfTickets}"> Number of available tickets </span></font></p>
+    <p><font size="3" color="#ffffff"> Details: <span th:text="${events_list.details}"> Details </span></font></p>
+    <br>
+</span>
+<span th:if="${event_tickets.empty}">
+    <p> No Tickets Available </p>
+</span>
+
+<span th:each="tick: ${event_tickets}">
+    <p><font size="3" color="#ffffff"> Ticket type: <span th:text="${tick.typet}">  Type </span> </font></p>
+    <p><font size="3" color="#ffffff"> Price: <span th:text="${tick.price}"> Price </span></font></p>
+    <p><font size="3" color="#ffffff"> Left: <span th:text="${tick.quantity}"> Quantity </span></font></p>
+    <br>
+</span>
+<form action="/list_events" class="blocktext">
+    <input type="submit" class = "button" value="Back" />
+</form>
+</div>
+</body>
+</html>
